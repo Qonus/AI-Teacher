@@ -6,16 +6,17 @@
  - We plan on improving the original prototype from ISSAI by implementing command system into our AI teacher. Theoretically it will give teacher more freedom and immerse the student into realm of education. Teacher will be able to show relevant media (Images. maybe videos too?), perform animations, change voice with speeking rate and show emotions with AI generated face animations on command. Chat bot will ocasionally use those commands.
 
 ## Instructions:
- - clone/download the project from this repository
- - install dependencies listed in requirements.txt
- - enter `python main.py` in project directory terminal to run the program (I'm so sorry for people who got an error message after that, good luck...![alt text](image.png))
- - Choose preferred input device by typing index shown in terminal
- - Hold [R] key to record yourself
+ - Clone or download the project from this repository.
+ - Install dependencies listed in requirements.txt.
+ - Enter `python main.py` in project directory terminal to run the program (I'm so sorry for people who got an error message after that, good luck...!<img src="image.png" alt="alt text" width="25" height="25">).
+ - Choose preferred input device by typing index shown in terminal.
+ - Hold [R] key to record yourself and ask AI a question.
+ - Enjoy! Additionally, you can add new AI behavior inside `teacher_personalities/` directory and reference it in 7th line of `main.py`, here: `PERSONALITY_FILE = r"AITeacher/teacher_personalities/Kakashi.txt"`.
 
 ## Currently used api list:
- - (stt.py) faster-whisper for speech to text 
- - (gpt.py) chat gpt 4 as chat bot, main brain of AI
- - (tts.py) edge-tts for text to speech
+ - (stt.py) faster-whisper for speech to text.
+ - (gpt.py) chat gpt 4 as chat bot, the big brain behind our AI.
+ - (tts.py) edge-tts for text to speech.
 
 ## Note:
  - There are other scripts labeled "old". They are old solutions I left in project. During development process I had to get rid of them because the solutions were whether too slow just like whisper, or not very accurate/real like in the case of pyttsx3, llama and SpeechRecognition.
