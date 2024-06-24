@@ -3,6 +3,9 @@ from STT.stt import speech_to_text
 from chat_bot.gpt import get_gpt_response, create_client
 from TTS.tts import text_to_speech
 from text_to_image.tti import get_image_url_unsplash, save_image
+from text_to_image.tti_generation import generate_image_sd
+import threading
+import time
 import os
 import tiktoken
 import re
@@ -51,6 +54,8 @@ def main():
         # Get GPT response
         gpt_response = get_gpt_response(conversation_history, client, GPT_MODEL)
         response = gpt_response
+        # Append GPT response to conversation history
+        conversation_history.append({"role": "assistant", "content": response})
 
         # handle commands
         print(gpt_response)
@@ -70,16 +75,15 @@ def main():
                 response.append({'command': False, 'text': part})
 
         def handle_command(command):
-            image_url = get_image_url_unsplash(command)
-            save_image(image_url)
+            generate_image_sd(command)
+            print(f"{command} image generated!")
+            # image_url = get_image_url_unsplash(command)
+            # save_image(image_url)
         
         def handle_text(text):
-            # Append GPT response to conversation history
-            conversation_history.append({"role": "assistant", "content": text})
-
             print(f"GPT-4: [voice: {voice}, rate: {rate}]\n{text}")
             try:
-                text_to_speech(text, voice, rate, remove=True)
+                text_to_speech(text, voice, rate, play=True, remove=True)
             except Exception as error:
                 print("An exception occurred:", error)
         

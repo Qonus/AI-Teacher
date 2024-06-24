@@ -21,9 +21,10 @@ def play_sound(file):
     mixer.quit()
     pygame.quit()
 
-def text_to_speech(text, voice="kk-KZ-DauletNeural", rate="+0%", output_file = "test_tts.mp3", remove = False):
+def text_to_speech(text, voice="en-US-BrianNeural", rate="+0%", output_file = "test_tts.mp3", play = False, remove = False):
     asyncio.run(text_to_speech_file(text, output_file, voice, rate))
-    play_sound(output_file)
+    if play:
+        play_sound(output_file)
     if remove:
         os.remove(output_file)
 
