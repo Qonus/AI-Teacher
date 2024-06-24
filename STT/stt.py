@@ -26,4 +26,4 @@ def speech_to_text(audio_filepath, model = "large-v3"):
         print(f"Error: File '{file_path}' not found.")
 
 if __name__ == "__main__":
-    speech_to_text(r"AITeacher/audio_recording/test_tts.mp3")
+    speech_to_text(r"audio_recording/test_tts.mp3")

@@ -12,7 +12,7 @@ def list_input_devices():
         device_info = p.get_device_info_by_host_api_device_index(0, i)
         if device_info.get('maxInputChannels') > 0:
             devices.append((i, device_info.get('name')))
-    
+            
     p.terminate()
     return devices
 

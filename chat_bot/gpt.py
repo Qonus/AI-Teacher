@@ -7,18 +7,15 @@ from TTS.tts import text_to_speech
 
 load_dotenv()
 
-GPT_MODEL = "gpt-4"
-
-
 def create_client():
     return OpenAI(
         api_key=os.getenv("OPENAI_API_KEY"),  # Use environment variable for security
     )
 
 
-def get_gpt_response(conversation_history: list, client):
+def get_gpt_response(conversation_history: list, client, gpt_model):
     response = client.chat.completions.create(
-        model=GPT_MODEL,
+        model=gpt_model,
         messages=conversation_history,
     )
     response = response.to_dict()
