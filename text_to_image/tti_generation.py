@@ -3,6 +3,7 @@ from io import BytesIO
 from PIL import Image
 from dotenv import load_dotenv
 import os
+from text_to_image.tti import get_image_url_unsplash, save_image
 
 load_dotenv()
 HUGGING_FACE_API_KEY = os.getenv("HUGGING_FACE_API_KEY")
@@ -24,9 +25,15 @@ def generate_image_sd(prompt, save_file = "text_to_image/generated_image.png"):
     #response.raise_for_status()  # Ensure the request was successful
     
     # The response content is binary image data
-    image = Image.open(BytesIO(response.content))
-    image.save(save_file)
-    return image
+    try:
+        image = Image.open(BytesIO(response.content))
+        image.save(save_file)
+        return image
+    except Exception as e:
+        print("Error while generation!")
+        url = get_image_url_unsplash(prompt)
+        save_image(url, save_file)
+
 
 def main() -> None:
     while True:
