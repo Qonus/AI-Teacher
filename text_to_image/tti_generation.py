@@ -30,9 +30,16 @@ def generate_image_sd(prompt, save_file = "text_to_image/generated_image.png"):
         image.save(save_file)
         return image
     except Exception as e:
-        print("Error while generation!")
-        url = get_image_url_unsplash(prompt)
-        save_image(url, save_file)
+        try:
+            print("Error while generation!")
+            response = requests.post(api_urls[1], headers=headers, json=payload)
+            image = Image.open(BytesIO(response.content))
+            image.save(save_file)
+            return image
+        except Exception as e:
+            print("Error while generation!")
+            url = get_image_url_unsplash(prompt)
+            save_image(url, save_file)
 
 
 def main() -> None:

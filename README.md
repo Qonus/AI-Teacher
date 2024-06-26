@@ -10,13 +10,15 @@
  - Install dependencies listed in requirements.txt.
  - Enter `python main.py` in project directory terminal to run the program (I'm so sorry for people who got an error message after that, good luck...!<img src="image.png" alt="alt text" width="25" height="25">).
  - Choose preferred input device by typing index shown in terminal.
- - Hold [R] key to record yourself and ask AI a question.
+ - Hold [SPACE] key to record yourself and ask AI a question.
  - Enjoy! Additionally, you can add new AI behavior inside `teacher_personalities/` directory and reference it in 7th line of `main.py`, here: `PERSONALITY_FILE = r"AITeacher/teacher_personalities/Kakashi.txt"`.
 
 ## Currently used api list:
  - (stt.py) faster-whisper for speech to text.
  - (gpt.py) chat gpt 4 as chat bot, the big brain behind our AI.
  - (tts.py) edge-tts for text to speech.
+ - (tti_generation.py) hugging face's stable diffusion models for text to image.
+ - (tti.py) unsplash api for database of stock images.
 
 ## Note:
  - There are other scripts labeled "old". They are old solutions I left in project. During development process I had to get rid of them because the solutions were whether too slow just like whisper, or not very accurate/real like in the case of pyttsx3, llama and SpeechRecognition.

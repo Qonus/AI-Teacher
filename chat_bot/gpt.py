@@ -3,7 +3,6 @@ import asyncio
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from TTS.tts import text_to_speech
 
 load_dotenv()
 

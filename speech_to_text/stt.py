@@ -1,9 +1,11 @@
 from faster_whisper import WhisperModel
 import os
 
-def speech_to_text(audio_filepath, model = "large-v3"):
+def initialize_whisper_model(model = "large-v3"):
     model = WhisperModel(model, device="cuda", compute_type="float16")
+    return model
 
+def speech_to_text(audio_filepath, model):
     # or run on GPU with INT8
     # model = WhisperModel(model, device="cuda", compute_type="int8_float16")
     # or run on CPU with INT8
@@ -26,4 +28,5 @@ def speech_to_text(audio_filepath, model = "large-v3"):
         print(f"Error: File '{file_path}' not found.")
 
 if __name__ == "__main__":
-    speech_to_text(r"audio_recording/test_tts.mp3")
+    model = initialize_whisper_model()
+    speech_to_text(r"audio_recording/audio_tmp.wav", model)
