@@ -3,7 +3,7 @@ from io import BytesIO
 from PIL import Image
 from dotenv import load_dotenv
 import os
-from text_to_image.tti import get_image_url_unsplash, save_image
+from tti import get_image_url_unsplash, save_image
 
 load_dotenv()
 HUGGING_FACE_API_KEY = os.getenv("HUGGING_FACE_API_KEY")
@@ -45,7 +45,7 @@ def generate_image_sd(prompt, save_file = "text_to_image/generated_image.png"):
 def main() -> None:
     while True:
         prompt = input("Enter the image prompt: ")
-        generate_image_sd(prompt)
+        generate_image_sd(prompt, "C:/QonusNUSRP/Unreal/Projects/AITeacher/Content/generated_image.png")
         
         print("Image saved as generated_image.png")
 
