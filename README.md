@@ -5,6 +5,14 @@
  - The Idea of the project is to teach young generation with interactive AI kazakh teachers.
  - We plan on improving the original prototype from ISSAI by implementing command system into our AI teacher. Theoretically it will give teacher more freedom and immerse the student into realm of education. Teacher will be able to show relevant media (Images. maybe videos too?), perform animations, change voice with speeking rate and show emotions with AI generated face animations on command. Chat bot will ocasionally use those commands.
 
+## Features:
+ - Chat with AI-Teacher
+ - Speech recognition with faster-whisper
+ - Response from LLM
+ - AI can generate images, and use them from unsplash by command
+ - The teacher can change his/her voice and rate of speech
+ - Text to speech with edge-tts
+
 ## Instructions:
  - Clone or download the project from this repository.
  - Install dependencies listed in requirements.txt.
